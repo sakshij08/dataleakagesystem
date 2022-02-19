@@ -1,0 +1,104 @@
+<html>
+  <head>
+    <title>Upload file</title>
+    <link href="{{ url_for('static', filename = 'css/page.css') }} " rel="stylesheet"></link>
+    <style>
+      .upload-btn-wrapper {
+  position: relative;
+  overflow: hidden;
+  display: inline-block;
+}
+
+.center {
+  margin: auto;
+  width: 50%;
+  border: 3px solid green;
+  padding: 10px;
+  margin-top: 100px;
+
+}
+
+/* .btn {
+  border: 2px solid #2DB4B9;
+  border-radius: 10px;
+  color: #2DB4B9;
+  background-color:Transparent;
+  padding: 8px 20px;
+  border-radius: 8px;
+  font-size: 20px;
+  font-weight: bold;
+} */
+.button{
+    background-color: Transparent;
+      position: relative;
+      display: inline-block;
+      padding: 10px 20px;
+      color: #2DB4B9;
+      font-size: 17px;
+      text-decoration: none;
+      text-transform: uppercase;
+      overflow: hidden;
+      transition: .5s;
+      margin-top: 20px;
+      letter-spacing: 4px;
+    border: 2px solid #2DB4B9;
+    border-radius: 10px;
+    cursor:pointer;
+    
+    }
+.upload-btn-wrapper input[type=file] {
+  font-size: 100px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  opacity: 0;
+}
+    </style>  
+  
+  
+  </head>
+  <div class="form-element"style="margin-left:20px;">
+   <a href="/manage-files"> <button type="submit" > Go Back</button></a>
+  </div>
+  
+  <!-- <div id="fe"style="margin-left:70px;">
+    <a href="/manage-files"> Manage Files </a>
+  </div> -->
+
+{% block main %}
+
+<div class=" center" style="color:white;">
+  <!-- <div class="row"> -->
+    <!-- <div class="col"> -->
+
+      <h1 style="text-align: center;margin-top:50px;color:white;font-size: 60px;">Upload the file</h1>
+      <!-- <hr> -->
+
+      <form action="/upload-files" method="POST" enctype="multipart/form-data"style="text-align: center;margin-top:90px;font-size:40px;">
+
+        <div class="form-group">
+          <!-- <label>Select files</label> -->
+          <p>Select Files</p><br>
+          <div class="custom-file">
+            <input type="file" class="custom-file-input button" name="image" id="image">
+            <label class="custom-file-label" for="input_file"style="font-size:20px;">Select file...</label>
+          </div>
+        </div>
+        <div class="form-element"style="margin-left:20px;">
+          <button type="submit" > Upload</button>
+        </div>
+        
+        <!-- <div class="upload-btn-wrapper">
+          
+          <button class="button" type="submit">Upload a file</button>
+          <input type="file" name="image" id="image" >
+        <button type="submit" class="btn btn-primary">Upload</button> -->
+
+      </form>
+
+    </div>
+  <!-- </div> -->
+<!-- </div> -->
+
+{% endblock %}
+</html>

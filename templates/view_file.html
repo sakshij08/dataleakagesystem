@@ -1,0 +1,70 @@
+<head>
+    <link href="style.css" rel="stylesheet"><link>
+    <title>View Files </title>
+    <link href="{{ url_for('static', filename = 'css/page.css') }} " rel="stylesheet"></link>
+      <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    </head>
+    
+    <header class="header">
+            <nav class="navbar">
+                <a href="#" class="nav-logo">View Files</a>
+                <ul class="nav-menu">
+                  <li class="nav-item">
+                    <a href="/home_a" class="nav-link">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="/message_a" class="nav-link">Messages</a>
+                </li>
+                <li class="nav-item">
+                    <a href="/logout" class="nav-link">Logout</a>
+                </li>
+                </ul>
+                <div class="hamburger">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </nav>
+    </header>
+    <body class="tab-content"style="color:white;">
+    </body>
+    <table class="content-table">
+      <thead>
+        <div>
+          <form name="view_file" action = "/view_file" method="post"  onsubmit="return validateForm()">
+        <tr>
+          <th>File No</th>
+          <th>Requested File </th>
+          <!-- <th>Key</th> -->
+          <th>View</th>
+        </tr>
+      </thead>
+    
+      <tbody style="background-color:#243b55;">
+        {% for row in data %}
+                <tr style="background-color:#243b55;">
+                    <td>{{row.0}}</td>
+                    <td>{{row.1}}</td>
+
+                    <!-- <td>{{row.7}}</td> -->
+                    <!-- <td>{{row.5}}</td>
+                    <td>{{row.6}}</td>
+                    <td>{{row.7}}</td>
+                    <td>{{row.8}}</td>  -->
+                    
+                     <td>
+                    
+                <a href="/view/{{row.0}}" class="btn btn-danger btn-xs"style="background-color:#32919b;color:white;border-color:#32919b; ">View</a>
+                    </td> 
+                </tr>
+                {% endfor %}
+      </tbody>
+
+    
+    </table>
+  </form>
+  </div>
+</body>  
+    

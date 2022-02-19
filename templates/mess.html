@@ -1,0 +1,101 @@
+<head>
+    <link href="style.css" rel="stylesheet"><link>
+    <title>Messages </title>
+    <link href="{{ url_for('static', filename = 'css/page.css') }} " rel="stylesheet"></link>
+      <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    </head>
+    
+    <header class="header">
+            <nav class="navbar">
+                <a href="home_a" class="nav-logo">   Messages</a>
+                <ul class="nav-menu">
+                  <li class="nav-item">
+                    <a href="/home_a" class="nav-link">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">Messages</a>
+                </li>
+                <li class="nav-item">
+                    <a href="/logout" class="nav-link">Logout</a>
+                </li>
+                </ul>
+                <div class="hamburger">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </nav>
+    </header>
+    <!-- <body class="tab-content"style="color:white;">
+        <div class="container">
+            <form action="action_page.php">
+          
+              <label for="fname">Sender </label>
+              <input type="text" id="fname" name="firstname" placeholder=" Sender..">
+          
+              <label for="lname">L</label>
+              <input type="text" id="lname" name="lastname" placeholder="Your last name..">
+          
+              <label for="country">Country</label>
+              <select id="country" name="country">
+                <option value="australia">Australia</option>
+                <option value="canada">Canada</option>
+                <option value="usa">USA</option>
+              </select>
+          
+              <label for="subject">Subject</label>
+              <textarea id="subject" name="subject" placeholder="Write something.." style="height:200px"></textarea>
+          
+              <input type="submit" value="Submit">
+          
+            </form>
+          </div>
+    </body> -->
+    
+      <div class="container">
+         
+            <form name="mess" action = "/message_a" method="POST">
+        
+            <!-- <label for="mess">Message </label> -->
+            <input type="text" id="mess" name="mess" style="text-align:center;margin-left:400px;margin-top:80px;font-size:25px;border-radius:10px;border:black" placeholder=" Message">
+            
+            <div class="form-element"style="text-align:center;margin-top:30px;">
+              <button type="submit" value="submit_mess" name= "submit">Send Message </button>
+          </div>
+            
+        
+          </form>
+        </div>
+ 
+    <table class="content-table"style="margin-top:70px;color:white;">
+      <thead>
+        <div>
+          
+        <tr>
+          <th>Message</th>
+          <th>Date&Time</th>
+          <th>Reply</th>
+          <th>Delete</th>
+        </tr>
+      </thead>
+    
+     <tbody style="background-color:#243b55;">
+      {% for row in messages %}
+         <tr style="background-color:#243b55;" >
+             <td>{{row.0}}</td>
+             <td>{{row.1}}</td>
+             <td>{{row.2}}</td>
+             <td>
+                <a href="/delete" class="btn  btn-xs"style="background-color:#32919b; color:white;" onclick="return confirm('Are You Sure For Delete?')">Delete</a>
+
+             </td>
+            
+         </tr>
+      {% endfor %}
+     </tbody>
+    </table>
+  </div>
+</body>  
+    

@@ -1,0 +1,62 @@
+<head>
+  <link href="style.css" rel="stylesheet"><link>
+  <title> Data Request</title>
+  <link href="{{ url_for('static', filename = 'css/page.css') }} " rel="stylesheet"></link>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+  <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  </head>
+  
+  <header class="header">
+          <nav class="navbar">
+              <a href="#" class="nav-logo">  Data Request</a>
+              <ul class="nav-menu">
+                <li class="nav-item">
+                  <a href="/home_d" class="nav-link">Home</a>
+              </li>
+              <li class="nav-item">
+                  <a href="/message_d" class="nav-link">Messages</a>
+              </li>
+              <li class="nav-item">
+                  <a href="/logout" class="nav-link">Logout</a>
+              </li>
+              </ul>
+              <div class="hamburger">
+                  <span class="bar"></span>
+                  <span class="bar"></span>
+                  <span class="bar"></span>
+              </div>
+          </nav>
+  </header>
+  <body class="tab-content"style="color:white;">
+  </body>
+  <table class="content-table">
+    <thead>
+      <div>
+        <form name="request_status" action = "/request_status" method="post"  onsubmit="return validateForm()">
+      <tr>
+        <th>Agent ID</th>
+        <th>File No</th>
+        <th>Requested File </th>
+        <th>Action</th>
+      </tr>
+    </thead>
+   
+    <tbody style="background-color:#243b55;">
+      {% for row in request %}
+              <tr  style="background-color:#243b55;">
+                  <td>{{row.1}}</td>
+                  <td>{{row.2}}</td>
+                  <td>{{row.3}}</td>
+                  <td>
+             <a href="/send_key/{{row.0}}" class="btn btn-warning btn-xs"style="background-color:#ffc107;border-width:2px; color:white;">Approve</a>
+              <a href="/decline/{{ row.0 }}" class="btn btn-danger btn-xs"style="background-color:red;border-width:2px; :white;" onclick="return confirm('Are You Sure to Decline?')">Decline</a>
+                  </td>
+              </tr>
+              {% endfor %}
+    </tbody>
+  </table>
+</form>
+</div>
+</body>  
+  

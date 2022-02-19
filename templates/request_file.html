@@ -1,0 +1,68 @@
+
+
+     <head>
+       <title>Request File</title>
+      <link href="style.css" rel="stylesheet"><link>
+      <link href="{{ url_for('static', filename = 'css/page.css') }} " rel="stylesheet"></link>
+        <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+      <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+      <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+      </head>
+      
+      <header class="header">
+              <nav class="navbar">
+                  <a href="#" class="nav-logo">  Request File</a>
+                  <ul class="nav-menu">
+                     
+                      <li class="nav-item">
+                          <a href="/home_a" class="nav-link">Home</a>
+                      </li>
+                      <li class="nav-item">
+                          <a href="/message_a" class="nav-link">Messages</a>
+                      </li>
+                      <li class="nav-item">
+                          <a href="/logout" class="nav-link">Logout</a>
+                      </li>
+                  </ul>
+                  <div class="hamburger">
+                      <span class="bar"></span>
+                      <span class="bar"></span>
+                      <span class="bar"></span>
+                  </div>
+              </nav>
+      </header>
+      <body class="tab-content"style="color:white;">
+      </body>
+      <table class="content-table">
+        <thead>
+          <div>
+            <form name="request_file" action = "/request_file" method="post"  onsubmit="return validateForm()">
+          <tr>
+            <th>File No</th>
+            <th >File Name </th>
+            <th>  Request </th>
+            <!-- <th></th> -->
+          </tr>
+        </thead>
+       
+        <tbody style="background-color:#243b55;">
+          {% for row in uploaded_files %}
+          <form method="post" action = "/request_file">
+                  <tr style="background-color:#243b55;">
+                      <td name="fid">{{row.0}}</td>
+                      <td name="fname" >{{row.1}}</td>
+                      <td><a href="/request_data/{{ row.0 }}" class="btn  btn-xs"style="background-color:#32919b;color:white;border-color:#32919b; ">Request</a></td>
+                      <!-- <td><button class="button button2"name="request_file" type="submit">Request</button></td> -->
+                      <!-- <td>{{row.2}}</td> -->
+                      <!-- <td> <div class="form-element"style="margin-left:70px;">
+                        <button type="submit" value="submit_agent_login" name= "submit">Sign In</button>
+                    </div></td> -->
+                  </tr>
+                  </form>
+                  {% endfor %}
+        </tbody>
+      </table>
+    </form>
+    </div>
+  </body>  
+      

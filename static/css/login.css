@@ -1,0 +1,212 @@
+* {
+    box-sizing:border-box;
+  }
+  body {
+    background: linear-gradient(#141e30, #243b55);
+    font-family:"sans-serif";
+  
+  }
+  
+  .form {
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    width:400px;
+    padding: 40px;
+    padding-top:0px;
+    background: rgba(0,0,0,.5);
+    box-sizing: border-box;
+    box-shadow: 0 15px 25px rgba(0,0,0,.6);
+    border-radius: 10px;
+  }
+  
+  .tab-header {
+    height:50px;
+    font-size:25px;
+    line-height:50px;
+    width:100%;
+    border-radius: 50px 20px;
+    /* transparency:80%; */
+    margin-bottom:20px;
+    margin-top:20px;
+    
+    
+  }
+  .pass{
+    text-align: left;
+    margin: 10px 0;
+  }
+  .pass button{
+  
+    text-decoration: none;
+    color: #2c7da0; 
+    font-size:15px; 
+    margin-left:85px;
+  }
+  .pass:hover button{
+    text-decoration: underline;
+  }
+  
+  .signup{
+    color: #480ba8; 
+    text-align:center; 
+    font-size:15px
+  }
+  .signup a{
+    color: #5e60ce;
+    text-decoration: none;
+  }
+  .signup a:hover{
+    text-decoration: underline;
+  }
+  
+  .form .tab-header > div {
+    width:50%;
+    margin:0px;
+    float:left;
+    text-align:center;
+    background:#ddd;
+    color:#acb2b5;
+    cursor:pointer;
+    transition: all .5s ease;
+    background:transparent;
+    font-size:20px;
+    
+    
+  }
+  .form .tab-header > div.active {
+    background:transparent;
+    color:#2DB4B9;
+    border-top:10px;
+  font-size:25px;
+    border: 2px solid #2DB4B9;
+    border-radius: 50px;
+  }
+  
+  .form .tab-content {
+    padding:20px;
+  } 
+  
+  .form .tab-content .form-element {
+    position: relative;
+  } 
+  .form .tab-content .form-element input {
+    width: 100%;
+      padding: 10px 0;
+      font-size: 16px;
+      color: #fff;
+      margin-bottom: 30px;
+      border: none;
+      border-bottom: 1px solid #fff;
+      outline: none;
+      background: transparent;
+  }
+  
+  .form .tab-content .form-element label {
+    position: absolute;
+      top:0;
+      left: 0;
+      padding: 10px 0;
+      font-size: 16px;
+      color: #fff;
+      pointer-events: none;
+      transition: 0.5s;
+  }
+    
+  .tab-content .form-element input:focus ~label,
+  .tab-content .form-element input:valid ~label {
+      top: -20px;
+      left: 0;
+      color: #2DB4B9;
+      font-size: 15px;
+    transition: all 0.5s ease;
+     
+    }
+    
+  .form-element button{
+    background-color: Transparent;
+      position: relative;
+      display: inline-block;
+      padding: 10px 20px;
+      color: #2DB4B9;
+      font-size: 17px;
+      text-decoration: none;
+      text-transform: uppercase;
+      overflow: hidden;
+      transition: .5s;
+      margin-top: 20px;
+      letter-spacing: 4px;
+    border: 2px solid #2DB4B9;
+    border-radius: 10px;
+    cursor:pointer;
+    
+    }
+  
+  .form .tab-content > div.active {
+    display:block;
+  }
+  .form .tab-content > div {
+    display:none;
+  }
+  
+  
+     .form-element button:hover {
+      background: #2DB4B9;
+      color: #fff;
+      border-radius: 5px;
+       transition: all 0.7s ease;
+  
+      
+    }
+    
+    .form-element button span {
+      position: absolute;
+      display: block;
+    }
+    
+    .form-element button span:nth-child(1) {
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, #03e9f4);
+      animation: btn-anim1 1s linear infinite;
+    }
+    
+    
+    .form-element button span:nth-child(2) {
+      top: -100%;
+      right: 0;
+      width: 2px;
+      height: 100%;
+      background: linear-gradient(180deg, transparent, #03e9f4);
+      animation: btn-anim2 1s linear infinite;
+      animation-delay: .5s;
+      transition: all 5s ease;
+    }
+    
+    
+    .form-element button span:nth-child(3) {
+      bottom: 0;
+      right: -100%;
+      width: 100%;
+      height: 2px;
+      background: linear-gradient(270deg, transparent, #03e9f4);
+      animation: btn-anim3 1s linear infinite;
+      animation-delay: .5s
+    }
+    
+    
+    .form-element button span:nth-child(4) {
+      bottom: -100%;
+      left: 0;
+      width: 2px;
+      height: 100%;
+      background: linear-gradient(360deg, transparent, #03e9f4);
+      animation: btn-anim4 1s linear infinite;
+      animation-delay: .75s
+    }
+  
+  
+  

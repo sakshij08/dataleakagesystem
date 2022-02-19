@@ -1,0 +1,132 @@
+<head>
+    <link href="style.css" rel="stylesheet"><link>
+    <title>Manage Files</title>
+    <link href="{{ url_for('static', filename = 'css/page.css') }} " rel="stylesheet"></link>
+      <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <style>
+      .upload-btn-wrapper {
+  position: relative;
+  overflow: hidden;
+  display: inline-block;
+}
+
+/* .btn {
+  border: 2px solid #2DB4B9;
+  border-radius: 10px;
+  color: #2DB4B9;
+  background-color:Transparent;
+  padding: 8px 20px;
+  border-radius: 8px;
+  font-size: 20px;
+  font-weight: bold;
+} */
+.button{
+    background-color: Transparent;
+      position: relative;
+      display: inline-block;
+      padding: 10px 20px;
+      color: #2DB4B9;
+      font-size: 17px;
+      text-decoration: none;
+      text-transform: uppercase;
+      overflow: hidden;
+      transition: .5s;
+      margin-top: 20px;
+      letter-spacing: 4px;
+    border: 2px solid #2DB4B9;
+    border-radius: 10px;
+    cursor:pointer;
+    
+    }
+.upload-btn-wrapper input[type=file] {
+  font-size: 100px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  opacity: 0;
+}
+    </style>  
+  
+  </head>
+    <header class="header">
+            <nav class="navbar">
+                <a href="#" class="nav-logo">Manage Files</a>
+                <ul class="nav-menu">
+                  <li class="nav-item">
+                    <a href="/home_d" class="nav-link">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="/message_d" class="nav-link">Messages</a>
+                </li>
+                <li class="nav-item">
+                    <a href="/logout" class="nav-link">Logout</a>
+                </li>
+                </ul>
+                <div class="hamburger">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </nav>
+    </header>
+    <div class="upbtn">
+    <a href="/upload-files"><button class=button style="margin-left:670px;margin-top:100px;" >Upload</button></a>
+  </div>
+      <body class="tab-content"style="color:white;">
+    
+    <table class="content-table" style="margin-top:150px;">
+      <thead>
+        <div>
+          <form name="request_status" action = "/request_status" method="post"  onsubmit="return validateForm()">
+        <tr>
+          <th>File No</th>
+          <th>File_name</th>
+          <th>Get</th>
+          
+          <th>Delete</th>
+        </tr>
+      </thead>
+     
+      <tbody>
+        {% for row in uploaded_files %}
+                <tr style="background-color:#243b55;">
+                    <td>{{row.0}}</td>
+                    <td>{{row.1}}</td>
+                    <td><a href="/getfile/{{ row.1 }}" class="btn  btn-xs"style="background-color:#54a736;border-width:2px; color:white;">Get</a></td>
+
+                    
+               <td>
+                <a href="/delete/{{ row.0 }}" class="btn  btn-xs"style="background-color:red;border-width:2px; color:white;" onclick="return confirm('Are You Sure For Delete?')">Delete</a>
+
+                    </td>
+
+                </tr>
+                {% endfor %}
+                
+                <!-- <form action="/upload-image" method="POST" enctype="multipart/form-data"style="text-align: center;margin-top:100px;font-size:40px;">
+                <div class="upload-btn-wrapper">
+                  <button class="button" type="submit">Upload a file</button>
+                  <input type="file" name="image" id="image" />
+
+                </form> -->
+                </div>
+<!-- 
+        <tr>
+          <td>1</td>
+          <td>678</td>
+          
+          <td>abc.txt</td>
+         <td style="font-family:italian;"> Pending
+    
+        </td>
+          <td><button class="button button2">Cancel</button></td>
+        </tr> -->
+
+      </tbody>
+    </table>
+  </form>
+  </div>
+</body>  
+    

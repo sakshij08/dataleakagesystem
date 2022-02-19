@@ -1,0 +1,65 @@
+<head>
+    <link href="style.css" rel="stylesheet"><link>
+    <title>Queries</title>
+    <link href="{{ url_for('static', filename = 'css/page.css') }} " rel="stylesheet"></link>
+      <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    </head>
+    
+    <header class="header">
+            <nav class="navbar">
+                <a href="#" class="nav-logo">  Queries</a>
+                <ul class="nav-menu">
+                  <li class="nav-item">
+                    <a href="/home_d" class="nav-link">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="/message_d" class="nav-link">Messages</a>
+                </li>
+                <li class="nav-item">
+                    <a href="/logout" class="nav-link">Logout</a>
+                </li>
+                </ul>
+                <div class="hamburger">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </nav>
+    </header>
+    <body class="tab-content"style="color:white;">
+   
+    <table class="content-table">
+      <thead>
+        <div>
+          <form name="queries" action = "/queries" method="POST"  >
+        <tr>
+            <th>Sr No</th>
+          <th> Name</th>
+          <th> Email </th>
+          <th>Phone_no</th>
+          <th>Message</th>
+          <!-- <th>Mail</th> -->
+        </tr>
+      </thead>
+    
+      <tbody style="background-color:#243b55;">
+        {% for row in contactus %}
+                <tr style="background-color:#243b55;">
+                    <td>{{row.0}}</td>
+                    <td>{{row.1}}</td>
+                    <td>{{row.2}}</td>
+                    <td>{{row.3}}</td>
+                    <td>{{row.4}}</td>
+                    <!-- <td><a href="/mail" class="btn  btn-xs"style="background-color:#32919b;color:white;border-color:#32919b; ">Mail</a></td>
+                  </td> -->
+                </tr>
+                {% endfor %}
+      </tbody>
+    </form>
+    </table>
+  
+  </div>
+</body>  
+    

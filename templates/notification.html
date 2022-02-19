@@ -1,0 +1,64 @@
+<head>
+    <link href="style.css" rel="stylesheet"><link>
+    <title>Notifications</title>
+    <link href="{{ url_for('static', filename = 'css/page.css') }} " rel="stylesheet"></link>
+      <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    </head>
+    
+    <header class="header">
+            <nav class="navbar">
+                <a href="#" class="nav-logo">  Notifications </a>
+                <ul class="nav-menu">
+                  <li class="nav-item">
+                    <a href="/home_a" class="nav-link">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="/message_a" class="nav-link">Messages</a>
+                </li>
+                <li class="nav-item">
+                    <a href="/logout" class="nav-link">Logout</a>
+                </li>
+                </ul>
+                <div class="hamburger">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </nav>
+    </header>
+    <body class="tab-content"style="color:white;">
+    </body>
+    <table class="content-table"style="margin-top:150px;color:white;">
+      <thead>
+        <div >
+          <!-- <form name="request_status" action = "/request_status" method="post"  onsubmit="return validateForm()"> -->
+        <!-- <tr>
+          
+          
+          <th> Subject  </th>
+          <th>Body</th>
+          
+        </tr> -->
+      </thead>
+     
+      <tbody style="background-color:#243b55;">
+        {% for row in data %}
+                <tr  style="background-color:#243b55;">
+      
+                    <td style="color:red;" >{{row.3}}</td>
+                    <td>{{row.4}}</td>
+                    <td>{{row.5}}</td>
+                    <!-- <td><a href="/warn/{{ row.2 }}" class="btn  btn-xs"style="background-color:#ffc107;color:white;border-color:#32919b; ">Warn</a></td>
+                    </td>   -->
+                    
+                    
+                </tr>
+                {% endfor %}
+      </tbody>
+    </table>
+  <!-- </form> -->
+</div>
+  </body>  
+    

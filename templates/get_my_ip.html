@@ -1,0 +1,39 @@
+{% block body %}
+
+<div class="container">
+
+    <br>
+    <br>
+    <h1>Flask IP Finder - Codeloop.org</h1>
+
+    <br>
+    <br>
+
+    <form action="{{url_for('get_my_ip')}}" method="post">
+
+        <div class="form-group">
+
+            <input type="text" name = "search" class="form-control" placeholder="Enter IP Address">
+        </div>
+
+        <input type="submit" class="btn btn-primary" value="Search">
+
+
+
+    </form>
+
+    <br>
+    <br>
+  
+<p>{{hostname}}</p>  
+<p>{{ IPAddr }}</p>
+<p>{{ ip2 }}</p>
+    <p>IP Address is : {{data.ip}}</p>
+    <p>City Location is : {{data.city}}</p>
+    <p>IP Country is : {{data.country}}</p>
+    <p>IP Country is : {{data.regionName}}</p>
+   <p>Internet Network Is : {{data.org}}</p>
+</div>
+
+
+{% endblock %}
